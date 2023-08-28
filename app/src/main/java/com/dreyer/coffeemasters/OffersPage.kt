@@ -16,6 +16,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.dreyer.coffeemasters.ui.theme.Alternative1
+import com.dreyer.coffeemasters.ui.theme.Alternative2
 
 
 @Preview (showBackground = true, widthDp = 400)
@@ -35,6 +37,7 @@ fun Offer() {
             style = MaterialTheme.typography.h5,
             fontWeight = FontWeight.Bold,
             modifier = Modifier
+                .background(Alternative1)
                 .padding(16.dp)
         )
 
@@ -43,6 +46,7 @@ fun Offer() {
         Text(text = "Description",
         style = MaterialTheme.typography.h6,
         modifier = Modifier
+            .background(Alternative2)
             .padding(16.dp)
             )
     }
