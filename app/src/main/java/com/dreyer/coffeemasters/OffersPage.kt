@@ -1,15 +1,19 @@
 package com.dreyer.coffeemasters
 
 import android.text.Layout.Alignment
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
@@ -28,6 +32,14 @@ fun Offer() {
         fontWeight = FontWeight.Normal,
         fontSize = 16.sp
     )
+    
+    Image(painter = painterResource(id = R.drawable.background_pattern),
+        contentDescription = "Background pattern",
+        contentScale = ContentScale.FillWidth,
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(140.dp)
+        )
 
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
