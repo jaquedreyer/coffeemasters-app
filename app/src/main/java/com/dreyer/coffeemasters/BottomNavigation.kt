@@ -17,7 +17,12 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.dreyer.coffeemasters.ui.theme.Alternative1
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.ui.tooling.preview.Preview
 import com.dreyer.coffeemasters.ui.theme.OnPrimary
@@ -33,12 +38,25 @@ object Routes {
 
     val pages = listOf(MenuPage, OffersPage, OrderPage, InfoPage)
 }
-@Preview
+
 @Composable
-fun NavBar() {
-    Row() {
+fun NavBar(selectedRoute:String = Routes.MenuPage.route,
+            onChange: (String) -> Unit) {
+    Row(
+        horizontalArrangement = Arrangement.SpaceAround,
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(16.dp)
+            .background(MaterialTheme.colorScheme.primary)
+
+    ) {
         for (page in Routes.pages){
-            NavBarItem(page)
+            NavBarItem(page,
+            selected = selectedRoute == page.route,
+            modifier = Modifier.clickable {
+                onChange(page.route)
+            }
+            )
         }
     }
 }
@@ -50,7 +68,7 @@ fun NavBarItem(page: NavPage, selected: Boolean = false, modifier: Modifier = Mo
             imageVector = page.icon,
             contentDescription = page.name,
             colorFilter = ColorFilter.tint(
-                if (selected) Alternative1 else OnPrimary
+                    if (selected) OnPrimary else Alternative1
             ),
             modifier = Modifier
                 .padding(bottom = 8.dp)
@@ -58,7 +76,7 @@ fun NavBarItem(page: NavPage, selected: Boolean = false, modifier: Modifier = Mo
         )
         Text(page.name,
             fontSize = 12.sp,
-            color = if (selected) Alternative1 else OnPrimary
+            color = if (selected) OnPrimary else Alternative1
         )
     }
 }
