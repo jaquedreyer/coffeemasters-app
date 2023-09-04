@@ -17,7 +17,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.dreyer.coffeemasters.ui.theme.Alternative1
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Row
 import androidx.compose.material3.Text
+import androidx.compose.ui.tooling.preview.Preview
 import com.dreyer.coffeemasters.ui.theme.OnPrimary
 
 data class NavPage(var name:String, var icon: ImageVector,
@@ -31,7 +33,15 @@ object Routes {
 
     val pages = listOf(MenuPage, OffersPage, OrderPage, InfoPage)
 }
-
+@Preview
+@Composable
+fun NavBar() {
+    Row() {
+        for (page in Routes.pages){
+            NavBarItem(page)
+        }
+    }
+}
 @Composable
 fun NavBarItem(page: NavPage, selected: Boolean = false, modifier: Modifier = Modifier) {
     Column(horizontalAlignment = Alignment.CenterHorizontally,
