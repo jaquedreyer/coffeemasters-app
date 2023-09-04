@@ -14,23 +14,31 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
-import com.dreyer.coffeemasters.ui.theme.CoffeeMastersTheme
-
+import com.dreyer.coffeemasters.Routes.MenuPage
+import com.dreyer.coffeemasters.pages.InfoPage
+import com.dreyer.coffeemasters.pages.MenuPage
+import com.dreyer.coffeemasters.pages.OffersPage
+import com.dreyer.coffeemasters.pages.OrderPage
 
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Preview
 @Composable
 fun App() {
-    var selectedRoute = remember {
-        mutableStateOf(Routes.MenuPage.route)
+    val selectedRoute = remember {
+        mutableStateOf("menu")
     }
-
     Scaffold(
-        topBar = {
-                 TopAppBar() {
-                     AppTitle()
-                 }
+        topBar = { TopAppBar {
+            AppTitle()
+        }},
+        content = {
+            when(selectedRoute.value) {
+                Routes.MenuPage.route -> MenuPage()
+                Routes.OffersPage.route -> OffersPage()
+                Routes.OrderPage.route -> OrderPage()
+                Routes.InfoPage.route -> InfoPage()
+            }
         },
         bottomBar = {
             NavBar(
@@ -39,11 +47,8 @@ fun App() {
                 selectedRoute.value = it
             })
         }
-    ){
-        OffersPage()
+    )
     }
-
-}
 
 
 @Preview
