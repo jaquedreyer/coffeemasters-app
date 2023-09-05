@@ -22,6 +22,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.dreyer.coffeemasters.DataManager
 import com.dreyer.coffeemasters.Product
 import com.dreyer.coffeemasters.R
 import com.dreyer.coffeemasters.ui.theme.Alternative1
@@ -29,7 +30,7 @@ import com.dreyer.coffeemasters.ui.theme.CardBackground
 
 @Preview
 @Composable
-fun MenuPage() {
+fun MenuPage(dataManager: DataManager) {
     LazyColumn {
         items(5) {
             Card(
