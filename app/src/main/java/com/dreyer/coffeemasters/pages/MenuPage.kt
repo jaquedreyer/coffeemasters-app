@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -22,17 +23,23 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import coil.compose.AsyncImage
 import com.dreyer.coffeemasters.DataManager
 import com.dreyer.coffeemasters.Product
 import com.dreyer.coffeemasters.R
 import com.dreyer.coffeemasters.ui.theme.Alternative1
 import com.dreyer.coffeemasters.ui.theme.CardBackground
+import com.dreyer.coffeemasters.ui.theme.Primary
 
 @Preview
 @Composable
 fun MenuPage(dataManager: DataManager) {
     LazyColumn {
-        items(5) {
+        items(dataManager.menu) {
+            Text(it.name,
+                color = Primary,
+                modifier = Modifier.padding(10.dp, 20.dp, 10.dp, 10.dp))
+            it.products.forEach {
             Card(
                 elevation = 2.dp,
                 shape = RoundedCornerShape(12.dp),
@@ -40,7 +47,10 @@ fun MenuPage(dataManager: DataManager) {
                     .background(CardBackground)
                     .padding(12.dp)
             ) {
-                ProductItem(product = Product(1, "dummy coffee", 1.25, ""), onAdd = {})
+                ProductItem(it, onAdd = {
+                    dataManager.cartAdd(it)
+                })
+                }
             }
         }
     }
@@ -60,8 +70,8 @@ fun ProductItem(product: Product, onAdd: (Product)->Unit) {
             .background(Color.White)
     ) {
 
-        Image(
-            painter = painterResource(id = R.drawable.black_coffee),
+        AsyncImage(
+            model = product.imageUrl,
             contentDescription = "Image for ${product.name}",
             contentScale = ContentScale.FillWidth,
             modifier = Modifier
