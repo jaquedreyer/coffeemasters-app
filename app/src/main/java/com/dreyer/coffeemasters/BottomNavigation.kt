@@ -26,6 +26,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.ui.tooling.preview.Preview
 import com.dreyer.coffeemasters.ui.theme.OnPrimary
+import com.dreyer.coffeemasters.ui.theme.Primary
 
 data class NavPage(var name:String, var icon: ImageVector,
                    var route:String)

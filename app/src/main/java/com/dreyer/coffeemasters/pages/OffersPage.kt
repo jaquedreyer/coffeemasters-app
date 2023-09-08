@@ -1,6 +1,6 @@
 package com.dreyer.coffeemasters.pages
 
-import android.text.Layout.Alignment
+
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -12,6 +12,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
@@ -55,7 +56,7 @@ fun Offer(title:String, description: String = "") {
                 .fillMaxWidth()
         ) {
             Text(text = title,
-                style = MaterialTheme.typography.h5,
+                style = MaterialTheme.typography.headlineMedium,
                 modifier = Modifier
                     .padding(16.dp)
                     .background(Alternative1)
@@ -64,7 +65,7 @@ fun Offer(title:String, description: String = "") {
             //Spacer(modifier = Modifier.height(16.dp))
 
             Text(text = description,
-                style = MaterialTheme.typography.h6,
+                style = MaterialTheme.typography.headlineSmall,
                 modifier = Modifier
                     .padding(16.dp)
                     .background(Alternative2)
