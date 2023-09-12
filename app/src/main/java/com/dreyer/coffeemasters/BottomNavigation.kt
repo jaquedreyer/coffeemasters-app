@@ -48,7 +48,7 @@ fun NavBar(selectedRoute:String = Routes.MenuPage.route,
         modifier = Modifier
             .fillMaxWidth()
             .padding(16.dp)
-            .background(MaterialTheme.colorScheme.primary)
+            .background(Primary)
 
     ) {
         for (page in Routes.pages){

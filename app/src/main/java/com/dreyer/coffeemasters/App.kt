@@ -16,6 +16,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.dreyer.coffeemasters.Routes.MenuPage
@@ -24,6 +25,7 @@ import com.dreyer.coffeemasters.pages.MenuPage
 import com.dreyer.coffeemasters.pages.OffersPage
 import com.dreyer.coffeemasters.pages.OrderPage
 import com.dreyer.coffeemasters.ui.theme.Primary
+import com.dreyer.coffeemasters.ui.theme.Ternary
 
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
@@ -36,7 +38,8 @@ fun App(dataManager: DataManager) {
     Scaffold(
         topBar = {
             TopAppBar(
-                { AppTitle() }
+                { AppTitle() },
+                colors = TopAppBarDefaults.smallTopAppBarColors(containerColor = Ternary)
             )
         },
         content = {
