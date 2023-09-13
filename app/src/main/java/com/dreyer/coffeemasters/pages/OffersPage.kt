@@ -19,8 +19,6 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.dreyer.coffeemasters.R
-import com.dreyer.coffeemasters.ui.theme.Alternative1
-import com.dreyer.coffeemasters.ui.theme.Alternative2
 
 
 //@Preview (showBackground = true, widthDp = 400)
@@ -59,7 +57,7 @@ fun Offer(title:String, description: String = "") {
                 style = MaterialTheme.typography.headlineMedium,
                 modifier = Modifier
                     .padding(16.dp)
-                    .background(Alternative1)
+                    .background(MaterialTheme.colorScheme.primary)
                     .padding(16.dp)
             )
             //Spacer(modifier = Modifier.height(16.dp))
@@ -68,7 +66,7 @@ fun Offer(title:String, description: String = "") {
                 style = MaterialTheme.typography.headlineSmall,
                 modifier = Modifier
                     .padding(16.dp)
-                    .background(Alternative2)
+                    .background(MaterialTheme.colorScheme.primary)
                     .padding(16.dp)
             )
         }

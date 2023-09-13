@@ -15,7 +15,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.dreyer.coffeemasters.ui.theme.Alternative1
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -24,9 +23,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
-import androidx.compose.ui.tooling.preview.Preview
-import com.dreyer.coffeemasters.ui.theme.OnPrimary
-import com.dreyer.coffeemasters.ui.theme.Primary
+
 
 data class NavPage(var name:String, var icon: ImageVector,
                    var route:String)
@@ -48,7 +45,7 @@ fun NavBar(selectedRoute:String = Routes.MenuPage.route,
         modifier = Modifier
             .fillMaxWidth()
             .padding(16.dp)
-            .background(Primary)
+            .background(MaterialTheme.colorScheme.primaryContainer)
 
     ) {
         for (page in Routes.pages){
@@ -69,7 +66,7 @@ fun NavBarItem(page: NavPage, selected: Boolean = false, modifier: Modifier = Mo
             imageVector = page.icon,
             contentDescription = page.name,
             colorFilter = ColorFilter.tint(
-                    if (selected) OnPrimary else Alternative1
+                    if (selected) MaterialTheme.colorScheme.onSecondaryContainer else MaterialTheme.colorScheme.onPrimaryContainer
             ),
             modifier = Modifier
                 .padding(bottom = 8.dp)
@@ -77,7 +74,7 @@ fun NavBarItem(page: NavPage, selected: Boolean = false, modifier: Modifier = Mo
         )
         Text(page.name,
             fontSize = 12.sp,
-            color = if (selected) OnPrimary else Alternative1
+            color = if (selected) MaterialTheme.colorScheme.onSecondaryContainer  else MaterialTheme.colorScheme.onPrimaryContainer
         )
     }
 }

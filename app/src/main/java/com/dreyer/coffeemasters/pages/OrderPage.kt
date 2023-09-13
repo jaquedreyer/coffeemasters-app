@@ -23,7 +23,7 @@ import androidx.compose.ui.unit.dp
 import com.dreyer.coffeemasters.DataManager
 import com.dreyer.coffeemasters.ItemInCart
 import com.dreyer.coffeemasters.Product
-import com.dreyer.coffeemasters.ui.theme.Primary
+
 
 
 @Composable
@@ -68,7 +68,7 @@ fun CartItem(it: ItemInCart, onDelete: (Product)->Unit) {
         Image(
             imageVector = Icons.Filled.Delete,
             contentDescription = "Delete",
-            colorFilter = ColorFilter.tint(Primary),
+            colorFilter = ColorFilter.tint(MaterialTheme.colorScheme.primary),
             modifier = Modifier.clickable {
                 onDelete(it.product)
             }

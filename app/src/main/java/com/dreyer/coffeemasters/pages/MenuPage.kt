@@ -15,6 +15,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -28,9 +29,7 @@ import coil.compose.AsyncImage
 import com.dreyer.coffeemasters.DataManager
 import com.dreyer.coffeemasters.Product
 import com.dreyer.coffeemasters.R
-import com.dreyer.coffeemasters.ui.theme.Alternative1
-import com.dreyer.coffeemasters.ui.theme.CardBackground
-import com.dreyer.coffeemasters.ui.theme.Primary
+
 
 
 @Composable
@@ -38,7 +37,7 @@ fun MenuPage(dataManager: DataManager) {
     LazyColumn {
         items(dataManager.menu) {
             Text(it.name,
-                color = Primary,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
                 modifier = Modifier.padding(10.dp, 20.dp, 10.dp, 10.dp))
             it.products.forEach {
             Card(
@@ -46,7 +45,7 @@ fun MenuPage(dataManager: DataManager) {
                 elevation = CardDefaults.outlinedCardElevation(2.dp),
                 shape = RoundedCornerShape(12.dp),
                 modifier = Modifier
-                    .background(CardBackground)
+                    .background(MaterialTheme.colorScheme.surfaceVariant)
                     .padding(12.dp)
             ) {
                 ProductItem(it, onAdd = {
