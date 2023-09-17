@@ -6,6 +6,7 @@
 > Order your favorite coffee quickly and easily!:coffee:
 
 ## :iphone: Screenshots
+![Screenshot](screenshots/screenshots1.png)
 
 ## :rocket: Features
 * **Browse Coffee Menu**: 
